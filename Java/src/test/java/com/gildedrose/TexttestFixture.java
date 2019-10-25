@@ -1,7 +1,7 @@
 package com.gildedrose;
 
 import com.gildedrose.item.ItemFactory;
-import com.gildedrose.item.RegularItem;
+import com.gildedrose.item.ItemImpl;
 
 public class TexttestFixture {
     private final static ItemFactory itemFactory = new ItemFactory();
@@ -9,7 +9,7 @@ public class TexttestFixture {
     public static void main(String[] args) {
         System.out.println("OMGHAI!");
 
-        RegularItem[] items = new RegularItem[]{
+        ItemImpl[] items = new ItemImpl[]{
                 itemFactory.createRegularItem("+5 Dexterity Vest", 10, 20),
                 itemFactory.createImprovingItem("Aged Brie", 2, 0),
                 itemFactory.createRegularItem("Elixir of the Mongoose", 5, 7),

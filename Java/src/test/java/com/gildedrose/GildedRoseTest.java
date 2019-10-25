@@ -3,7 +3,7 @@ package com.gildedrose;
 import static org.junit.Assert.*;
 
 import com.gildedrose.item.ItemFactory;
-import com.gildedrose.item.RegularItem;
+import com.gildedrose.item.ItemImpl;
 import org.junit.Test;
 
 public class GildedRoseTest {
@@ -11,7 +11,7 @@ public class GildedRoseTest {
 
     @Test
     public void foo() {
-        RegularItem[] items = new RegularItem[]{itemFactory.createRegularItem("foo", 0, 0)};
+        ItemImpl[] items = new ItemImpl[]{itemFactory.createRegularItem("foo", 0, 0)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals("fixme", app.items[0].name);

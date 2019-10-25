@@ -1,21 +1,19 @@
 package com.gildedrose;
 
-import com.gildedrose.item.RegularItem;
+import com.gildedrose.item.ItemImpl;
 
 class GildedRose {
-    RegularItem[] items;
-    private final UpdateQualityService updateQualityService;
+    ItemImpl[] items;
 
-    GildedRose(RegularItem[] items) {
+    GildedRose(ItemImpl[] items) {
         this.items = items;
-        updateQualityService = new UpdateQualityService();
     }
 
     void updateQuality() {
-        for (final RegularItem item : items) {
-            updateQualityService.updateItemQuality(item);
-            updateQualityService.decreaseSellInDate(item);
-            updateQualityService.updateQualityPastSellDate(item);
+        for (final ItemImpl item : items) {
+            item.updateQuality();
+            item.updateSellDate();
+            item.updateQualityAfterDeadline();
         }
     }
 }
