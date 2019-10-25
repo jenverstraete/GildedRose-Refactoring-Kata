@@ -8,7 +8,7 @@ public class GildedRoseTest {
 
     @Test
     public void foo() {
-        NewItem[] items = new NewItem[] { new NewItem("foo", 0, 0) };
+        NewItem[] items = new NewItem[] { new NewItem("foo", 0, 0, true) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals("fixme", app.items[0].name);

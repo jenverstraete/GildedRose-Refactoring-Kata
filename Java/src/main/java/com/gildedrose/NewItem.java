@@ -1,21 +1,14 @@
 package com.gildedrose;
 
-import com.sun.istack.internal.NotNull;
-
 class NewItem extends Item {
-    NewItem(final String name, final int sellIn, final int quality) {
+    private final boolean sellable;
+
+    NewItem(final String name, final int sellIn, final int quality, final boolean sellable) {
         super(name, sellIn, quality);
+        this.sellable = sellable;
     }
 
-    void decrementItemQuality(@NotNull final Item item) {
-        if (item.quality > 0) {
-            item.quality--;
-        }
-    }
-
-    void incrementItemQuality(@NotNull final Item item) {
-        if (item.quality < 50) {
-            item.quality++;
-        }
+    boolean isSellable() {
+        return sellable;
     }
 }
