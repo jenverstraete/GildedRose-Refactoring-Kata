@@ -1,20 +1,25 @@
 package com.gildedrose;
 
+import com.gildedrose.item.ItemFactory;
+import com.gildedrose.item.RegularItem;
+
 public class TexttestFixture {
+    private final static ItemFactory itemFactory = new ItemFactory();
+
     public static void main(String[] args) {
         System.out.println("OMGHAI!");
 
-        NewItem[] items = new NewItem[]{
-                new NewItem("+5 Dexterity Vest", 10, 20, true), //
-                new NewItem("Aged Brie", 2, 0, true), //
-                new NewItem("Elixir of the Mongoose", 5, 7, true), //
-                new NewItem("Sulfuras, Hand of Ragnaros", 0, 80, false), //
-                new NewItem("Sulfuras, Hand of Ragnaros", -1, 80, false),
-                new ItemWithNoValuePastSelldate("Backstage passes to a TAFKAL80ETC concert", 15, 20, true),
-                new ItemWithNoValuePastSelldate("Backstage passes to a TAFKAL80ETC concert", 10, 49, true),
-                new ItemWithNoValuePastSelldate("Backstage passes to a TAFKAL80ETC concert", 5, 49, true),
+        RegularItem[] items = new RegularItem[]{
+                itemFactory.createRegularItem("+5 Dexterity Vest", 10, 20),
+                itemFactory.createImprovingItem("Aged Brie", 2, 0),
+                itemFactory.createRegularItem("Elixir of the Mongoose", 5, 7),
+                itemFactory.createLegendaryItem("Sulfuras, Hand of Ragnaros", 0, 80),
+                itemFactory.createLegendaryItem("Sulfuras, Hand of Ragnaros", -1, 80),
+                itemFactory.createDisposableItem("Backstage passes to a TAFKAL80ETC concert", 15, 20),
+                itemFactory.createDisposableItem("Backstage passes to a TAFKAL80ETC concert", 10, 49),
+                itemFactory.createDisposableItem("Backstage passes to a TAFKAL80ETC concert", 5, 49),
                 // this conjured item does not work properly yet
-                new NewItem("Conjured Mana Cake", 3, 6, true)};
+                itemFactory.createRegularItem("Conjured Mana Cake", 3, 6)};
 
         GildedRose app = new GildedRose(items);
 
