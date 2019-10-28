@@ -1,11 +1,8 @@
 package com.gildedrose.item.behaviour;
 
-import com.gildedrose.item.ItemImpl;
-import com.sun.istack.internal.NotNull;
-
 public class QualityIncreasingExponential implements QualityBehaviour {
-    @Override
-    public void updateQuality(@NotNull final ItemImpl item) {
+    /*@Override
+    public void getChangeInQuality(@NotNull final ItemImpl item) {
         item.incrementQuality();
         if (item.sellIn < 11) {
             item.incrementQuality();
@@ -13,5 +10,10 @@ public class QualityIncreasingExponential implements QualityBehaviour {
         if (item.sellIn < 6) {
             item.incrementQuality();
         }
+    }*/
+
+    @Override
+    public int getChangeInQuality(int sellDate) {
+        return sellDate < 6 ? 3 : sellDate < 11 ? 2 : 1;
     }
 }

@@ -6,8 +6,4 @@ public interface Item {
     void updateSellDate();
 
     void updateQualityAfterDeadline();
-
-    void incrementQuality();
-
-    void decrementQuality();
 }
