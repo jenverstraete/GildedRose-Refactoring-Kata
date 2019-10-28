@@ -10,8 +10,9 @@ public class ItemImpl extends com.gildedrose.Item implements Item {
     private final QualityAfterSellDateBehaviour qualityAfterSellDateBehaviour;
     private final int maxQuality;
 
-    ItemImpl(final String name, final int sellIn, final int quality, final int maxQuality, final QualityBehaviour qualityBehaviour,
-             final SellDateBehaviour sellDateBehaviour, final QualityAfterSellDateBehaviour qualityAfterSellDateBehaviour) {
+    ItemImpl(final String name, final int sellIn, final int quality, final int maxQuality,
+             final QualityBehaviour qualityBehaviour, final SellDateBehaviour sellDateBehaviour,
+             final QualityAfterSellDateBehaviour qualityAfterSellDateBehaviour) {
         super(name, sellIn, quality);
 
         this.qualityBehaviour = qualityBehaviour;
@@ -39,11 +40,13 @@ public class ItemImpl extends com.gildedrose.Item implements Item {
 
     private void changeQualityWith(int qualityChange) {
         quality += qualityChange;
-        if (quality > maxQuality) {
-            quality = maxQuality;
-        }
-        if(quality < 0) {
-            quality = 0;
+        applyQualityBounds(quality > maxQuality, maxQuality);
+        applyQualityBounds(quality < 0, 0);
+    }
+
+    private void applyQualityBounds(final boolean updateQuality, final int limitedQuality) {
+        if (updateQuality) {
+            quality = limitedQuality;
         }
     }
 }
